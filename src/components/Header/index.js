@@ -1,10 +1,11 @@
-import React from 'react'
+import './styles.css'
 
 function Header() {
   return (
-    <header>
-        <h1>The World</h1>
-        <button>A</button>
+    <header className='mainHeader'>
+        <h1 className='title'>The World</h1>
+        
+        <button className='toggleColorBtn'>A</button>
     </header>
   )
 }
