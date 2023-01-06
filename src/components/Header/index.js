@@ -1,11 +1,12 @@
-import './styles.css'
-
 function Header() {
   return (
-    <header className='mainHeader'>
-        <h1 className='title'>The World</h1>
-        
-        <button className='toggleColorBtn'>A</button>
+    <header className=''>
+      <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+          <h1 class="navbar-brand" style={{margin: 0, padding: 0}}>Navbar</h1>
+          <button class="btn btn-outline-success" type="submit">C</button>
+        </div>
+      </nav>
     </header>
   )
 }
