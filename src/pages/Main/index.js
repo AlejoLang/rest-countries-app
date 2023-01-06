@@ -1,5 +1,6 @@
 import Header from 'components/Header'
 import ListedCountries from 'components/ListedCountry'
+import Loading from 'components/Loading'
 import React, { useEffect, useState } from 'react'
 import { Form } from 'react-bootstrap'
 
@@ -34,9 +35,7 @@ function MainPage() {
 
   if(countries.length === 0){
     return(
-      <div>
-        Loding...
-      </div>
+      <Loading />
     )
   }
 

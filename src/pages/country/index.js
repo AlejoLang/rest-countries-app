@@ -1,4 +1,5 @@
 import Header from "components/Header"
+import Loading from "components/Loading"
 import { useEffect, useState } from "react"
 import { useLocation } from "wouter"
 
@@ -15,7 +16,7 @@ function CountryPage({params}) {
 
   if(!data){
     return (
-      <p>Loading...</p>
+      <Loading />
     )
   }
 
