@@ -43,8 +43,8 @@ function MainPage() {
   return (
     <div className='mainPage'>
       <Header />
-      <div className='container d-flex justify-content-center my-4'>
-        <div className="col-md-3 rounded m-2">
+      <div className='container d-flex justify-content-center flex-wrap my-4'>
+        <div className="col-md-3 col-sm-12 rounded m-2">
           <input type="search" class="form-control rounded searchBar" onChange={searchCountry} placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
         </div>
         <div className="col-md-2 m-2">
