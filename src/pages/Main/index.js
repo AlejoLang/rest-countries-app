@@ -1,7 +1,7 @@
 import Header from 'components/Header'
 import ListedCountries from 'components/ListedCountry'
 import React, { useEffect, useState } from 'react'
-import './styles.css'
+import { Form } from 'react-bootstrap'
 
 function MainPage() {
 
@@ -43,23 +43,26 @@ function MainPage() {
   return (
     <div className='mainPage'>
       <Header />
-      <div className='searchDiv' >
-          <input type="text" className='searchBar'onChange={searchCountry} placeholder='Type a country name...'/>
-          <select name="filterBySelect" className='filterBySelect' onChange={searchCountry}>
-            <option disabled>Filter by Region</option>
+      <div className='container d-flex justify-content-center my-4'>
+        <div className="col-md-3 rounded m-2">
+          <input type="search" class="form-control rounded searchBar" onChange={searchCountry} placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        </div>
+        <div className="col-md-2 m-2">
+          <Form.Select aria-label="Filter by region" name="filterBySelect" className='filterBySelect' onChange={searchCountry}>
             <option value='All' className='selectoption'>All</option>
             <option value='Americas' className='selectoption'>Americas</option>
             <option value='Europe' className='selectoption'>Europe</option>
             <option value='Asia' className='selectoption'>Asia</option>
             <option value='Africa' className='selectoption'>Africa</option>
             <option value='Oceania' className='selectoption'>Oceania</option>
-          </select>
+          </Form.Select>
+        </div>
       </div>
-      <div className='flagsDiv'>
-      {
-      filteredCountries.map(country => 
-          <ListedCountries data={country} />
-      )}
+      <div className='flagsDiv container d-flex flex-wrap justify-content-center'>
+        {
+          filteredCountries.map(country => 
+            <div className='col-md-3 p-3'><ListedCountries data={country} /></div>)
+        }
       </div>
     </div>
   )

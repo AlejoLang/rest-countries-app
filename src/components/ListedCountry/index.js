@@ -1,19 +1,25 @@
 import React from 'react'
+import { Card } from 'react-bootstrap'
 import { Link } from 'wouter'
-import './styles.css'
 
 function ListedCountries({data}) {
   return (
-    <Link href={`/country/${data?.name?.common}`} >
-      <div className='listedCountry'>
-        <img src={data?.flags?.png} alt={data?.name?.common} className='listedCountryImg'/>
-        <div className='listedCountryInfo'>
-            <p className='listedCountryName'>{data?.name?.official}</p>
-            <p className='listedCountryData'><span>Population: </span>{data?.population?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-            <p className='listedCountryData'><span>Capital: </span>{data?.capital?.join(', ')}</p>
-            <p className='listedCountryData'><span>Region: </span>{data?.region}</p>
-        </div>
-      </div>
+    <Link href={`/country/${data?.name?.common}`}>
+      <Card style={{'aspect-ratio': '1 / 1.2', 'cursor': 'pointer'}}  className='bg-primary'>
+        <Card.Img variant="top" src={data?.flags?.png} style={{'aspect-ratio': '16/9'}}/>
+        <Card.Body>
+          <Card.Title className='mb-3'>{data?.name?.official}</Card.Title>
+          <Card.Text className='mt-1 mb-1'>
+            <strong>Population: </strong>{data?.population?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </Card.Text>
+          <Card.Text className='mt-1 mb-1'>
+            <strong>Capital: </strong>{data?.capital?.join(', ')}
+          </Card.Text>
+          <Card.Text className='mt-1 mb-1'>
+            <strong>Region: </strong>{data?.region}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </Link>
   )
 }
