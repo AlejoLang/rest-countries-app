@@ -14,3 +14,10 @@ body
 {
   background-color: $secondary;
 }
+
+@media (max-width: 978px) {
+  .countryInfo {
+    padding:1rem !important;
+    margin:0 !important;
+  }
+}

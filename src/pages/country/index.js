@@ -1,6 +1,6 @@
+import Header from "components/Header"
 import { useEffect, useState } from "react"
 import { useLocation } from "wouter"
-
 
 function CountryPage({params}) {
   
@@ -21,16 +21,17 @@ function CountryPage({params}) {
 
   return (
     <div className="countryPage">
-      <button onClick={() => setLocation('/')}> Go Back</button>
-      <div className="countryInfoDiv">
-        <img src={data?.flags?.png} alt={data?.name?.common} className="countryInfoFlag" />
-        <div className="countryInfoPrincipal">
-          <h2 className="countryInfoPrincipalTitle">{data?.name?.official}</h2>
-          <p className="countryInfoPrincipalInfo"><span>Native Name: </span>{data?.name?.nativeName[`${Object.keys(data?.name?.nativeName)[0]}`]?.common}</p>
-          <p className="countryInfoPrincipalInfo"><span>Population: </span>{data?.population?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-          <p className="countryInfoPrincipalInfo"><span>Region: </span>{data?.region}</p>
-          <p className="countryInfoPrincipalInfo"><span>Sub Region: </span>{data?.subregion}</p>
-          <p className="countryInfoPrincipalInfo"><span>Capital: </span>{data?.capital?.join(', ')}</p>
+      <Header />
+      <button onClick={() => setLocation('/')} className='btn btn-primary my-4 mx-3'> Go Back</button>
+      <div className="container h-100 p-3 d-flex flex-wrap align-items-center">
+        <img src={data?.flags?.png} alt={data?.name?.common} className="col-md-4 col-sm-12 border" />
+        <div className="col-md-6 col-sm-12 countryInfo" style={{'margin-left': '3rem'}}>
+          <h2 className="my-3">{data?.name?.official}</h2>
+          <p className="my-2"><strong>Native Name: </strong>{data?.name?.nativeName[`${Object.keys(data?.name?.nativeName)[0]}`]?.common}</p>
+          <p className="my-2"><strong>Population: </strong>{data?.population?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+          <p className="my-2"><strong>Region: </strong>{data?.region}</p>
+          <p className="my-2"><strong>Sub Region: </strong>{data?.subregion}</p>
+          <p className="my-2"><strong>Capital: </strong>{data?.capital?.join(', ')}</p>
         </div>
         
       </div>
