@@ -61,7 +61,7 @@ function MainPage() {
   ];
 
   const searchCountry = (filter='') => {
-    console.log(document.querySelector('.sortBySelect'))
+    
     const input = document?.querySelector('.searchBar')?.value,
           selector = document?.querySelector('.filterBySelect') ?? {value: 'All'}
 
